@@ -4,9 +4,17 @@ import sys
 from datetime import datetime
 
 def process_content(body):
-    # Добавляем автоматические переносы строк
-    body = body.replace('\n', '  \n')
-    return markdown(body, extensions=['extra', 'nl2br'])
+    # Добавляем переносы для стихов
+    body = (
+        body.replace('"', '&quot;')
+            .replace('\n', '  \n')
+            .replace(':', ':  \n')  # Перенос после двоеточия
+    )
+    return markdown(
+        body, 
+        extensions=['extra', 'nl2br', 'md_in_html'],
+        output_format='html5'
+    )
 
 def add_entry(title, body):
     entry_html = f'''
@@ -29,8 +37,8 @@ def add_entry(title, body):
             f'{entry_html}\n<!-- NEW ENTRIES WILL BE ADDED HERE AUTOMATICALLY -->'
         )
         f.seek(0)
-        f.write(new_content)
         f.truncate()
+        f.write(new_content)
 
 if __name__ == "__main__":
     add_entry(sys.argv[1], sys.argv[2])
