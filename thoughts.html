@@ -47,11 +47,12 @@
     }
 
     .entry-content {
-      padding: 0 20px;
-      max-height: 0;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
+    padding: 0 20px;
+    max-height: unset; /* Убираем ограничение высоты */
+    overflow: visible; /* Разрешаем отображение всего текста */
+}
+
+    
 
     .entry.active .entry-content {
       max-height: 2000px;
@@ -62,10 +63,10 @@
       transform: rotate(180deg);
     }
 
-    .entry-text {
-      line-height: 1.7;
-      color: #34495e;
-    }
+   .entry-text {
+    white-space: normal; /* Разрешаем переносы */
+    word-wrap: break-word; /* Перенос длинных слов */
+}
 
     .entry-text ol, .entry-text ul {
       margin: 15px 0;
