@@ -3,153 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Название книги - Библиотека</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Книга</title>
     <style>
-        /* Базовые стили */
+        /* Основные стили */
         body {
             margin: 0;
-            padding: 0;
-            background: #fff;
-            color: #34495e;
+            padding: 20px;
+            background: #333;
+            color: #e0e0e0;
             line-height: 1.8;
             font-size: 1.1rem;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
         }
 
-        /* Главный контент */
-        main {
-            flex: 1;
-            padding: 20px 15px;
-        }
-
-        /* Шапка книги */
-        .book-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .book-title {
-            color: #2c3e50;
-            font-size: 2rem;
-            margin: 0 0 0.5rem 0;
-            line-height: 1.2;
-        }
-
-        .book-author {
-            color: #7f8c8d;
-            font-size: 1.1rem;
-        }
-
-        /* Оглавление */
-        .toc {
-            margin: 2rem 0;
-        }
-
-        .toc ol {
-            columns: 2;
-            padding: 0;
-            list-style: none;
-        }
-
-        .toc li {
-            margin-bottom: 0.8rem;
-            break-inside: avoid;
-        }
-
-        .toc a {
-            color: #3498db;
-            text-decoration: none;
-            display: block;
-            padding: 0.3rem 0;
-        }
-
-        /* Главы */
         .chapter {
-            margin: 3rem 0;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .chapter-title {
-            color: #34495e;
-            font-size: 1.6rem;
-            margin: 0 0 1.5rem 0;
-        }
-
-        /* Навигация */
-        .navigation {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin: 3rem 0;
-        }
-
-        .nav-button {
-            padding: 0.8rem 1.5rem;
-            background: #34495e;
-            color: white;
-            border-radius: 4px;
+        /* Сноски в тексте */
+        .footnote {
+            color: #7fa8ff;
             text-decoration: none;
-            transition: background 0.2s;
+            font-size: 0.8em;
+            vertical-align: super;
+            margin-left: 3px;
+        }
+
+        /* Блок сносок */
+        .footnotes {
+            margin-top: 50px;
+            padding: 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 5px;
+        }
+
+        .footnote-item {
+            margin: 15px 0;
+            color: #a0a0a0;
+        }
+
+        /* Ссылки на Библию */
+        .bible-link {
+            color: #7fa8ff;
+            text-decoration: none;
+            margin-left: 10px;
+            border: 1px solid;
+            padding: 2px 8px;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .bible-link:hover {
+            background: #7fa8ff;
+            color: #333;
+        }
+
+        /* Кнопка "Назад" */
+        .back-link {
+            color: #7fa8ff;
+            text-decoration: none;
+            margin-left: 15px;
+            padding: 2px 8px;
+            border: 1px solid;
+            border-radius: 3px;
+        }
+
+        /* Плавная прокрутка */
+        html {
+            scroll-behavior: smooth;
         }
 
         /* Адаптивность */
         @media (max-width: 768px) {
             body {
                 font-size: 1rem;
+                padding: 15px;
             }
             
-            .toc ol {
-                columns: 1;
-            }
-            
-            .book-title {
-                font-size: 1.8rem;
-            }
-            
-            .chapter-title {
-                font-size: 1.4rem;
-            }
-            
-            .navigation {
-                flex-wrap: wrap;
-            }
-        }
-
-        @media (max-width: 480px) {
-            main {
-                padding: 15px 10px;
-            }
-            
-            .nav-button {
-                width: 100%;
-                text-align: center;
+            .bible-link, .back-link {
+                display: block;
+                margin: 5px 0;
+                width: fit-content;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Шапка сайта -->
-    <header>
-        <div class="header-container">
-            <img src="1rs.jpg" alt="Ralph Shallis" class="profile-img">
-            <div>
-                <h1>R.Shallis</h1>
-                <nav>
-                    <a href="index.html">Главная</a><br>
-                    <a href="books.html">Книги</a><br>
-                    <a href="sermons.html">Проповеди</a><br>
-                    <a href="quotes.html">Цитаты</a><br>
-                    <a href="testimonies.html">Свидетельства</a><br>
-                    <a href="thoughts.html">Дневник</a>
-                </nav>
-            </div>
-        </div>
-    </header>
 
-    <main>
-        <div class="book-header">
+  <div class="book-header">
             <h1 class="book-title">Название книги</h1>
             <p class="book-author">Автор: [Ваше имя]</p>
         </div>
@@ -212,10 +153,7 @@
             <a href="#" class="nav-button">Наверх ↑</a>
             <a href="books.html" class="nav-button">Все книги</a>
         </div>
-    </main>
+</div>
 
-    <footer>
-        <p>&copy; 2025 Библиотека Шалли</p>
-    </footer>
 </body>
 </html>
