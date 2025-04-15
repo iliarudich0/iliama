@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Название книги - Библиотека</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .book-header {
+            text-align: center;
+            border-bottom: 2px solid #8B0000;
+            margin-bottom: 30px;
+        }
+
+        .book-title {
+            font-size: 24px;
+            color: #8B0000;
+            margin: 20px 0;
+        }
+
+        .toc {
+            background: #f5f5f5;
+            padding: 15px;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+        }
+
+        .toc h3 {
+            color: #8B0000;
+            margin-top: 0;
+        }
+
+        .toc a {
+            color: #0066CC;
+            text-decoration: none;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        .chapter {
+            margin: 40px 0;
+        }
+
+        .chapter-title {
+            color: #8B0000;
+            font-size: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        .navigation {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .nav-button {
+            display: inline-block;
+            padding: 8px 15px;
+            margin: 0 5px;
+            background: #8B0000;
+            color: white;
+            text-decoration: none;
+            border-radius: 3px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="book-header">
+        <h1 class="book-title">Название вашей книги</h1>
+        <p>Автор: Имя Автора</p>
+    </div>
+
+    <div class="toc">
+        <h3>Оглавление</h3>
+        <ol>
+            <li><a href="#chapter1">Глава 1. Название главы</a></li>
+            <li><a href="#chapter2">Глава 2. Название главы</a></li>
+            <li><a href="#chapter3">Глава 3. Название главы</a></li>
+        </ol>
+    </div>
+
+    <div class="chapter" id="chapter1">
+        <h2 class="chapter-title">Глава 1. Название главы</h2>
+        <p>Текст вашей главы...</p>
+        <!-- Добавьте свой текст здесь -->
+    </div>
+
+    <div class="chapter" id="chapter2">
+        <h2 class="chapter-title">Глава 2. Название главы</h2>
+        <p>Текст вашей главы...</p>
+    </div>
+
+    <div class="navigation">
+        <a href="#chapter1" class="nav-button">Начало</a>
+        <a href="#" class="nav-button">В начало страницы</a>
+        <a href="books.html" class="nav-button">К списку книг</a>
+    </div>
+
+    <div class="footer">
+        <p>© Библиотека, 2024. Все права защищены.</p>
+        <p>Электронная версия подготовлена: [ваше имя/организация]</p>
+    </div>
+</body>
+</html>
