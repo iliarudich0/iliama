@@ -1,12 +1,19 @@
 from markdown import markdown
 from bs4 import BeautifulSoup
 import sys
+import re
 from datetime import datetime
 
 def process_content(body):
-    # Сохраняем все переносы строк и экранируем HTML
-    body = body.replace('\n', '  \n')  # Двойной пробел для Markdown-переносов
-    return markdown(body, extensions=['extra', 'nl2br'])
+    # Улучшенная обработка текста
+    body = re.sub(r'\n\s*\n', '\n\n', body)  # Удаляем лишние пустые строки
+    body = body.replace('\n', '  \n')        # Сохраняем переносы строк
+    return markdown(body, extensions=[
+        'extra', 
+        'nl2br', 
+        'md_in_html', 
+        'tables'
+    ])
 
 def add_entry(title, body):
     entry_html = f'''
