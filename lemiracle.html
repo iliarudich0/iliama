@@ -8,41 +8,44 @@
     <style>
         /* Базовые стили */
         body {
-            background: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            background: #fff;
             color: #34495e;
-            line-height: 1.7;
+            line-height: 1.8;
             font-size: 1.1rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Контейнер контента */
-        .book-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+        /* Главный контент */
+        main {
+            flex: 1;
+            padding: 20px 15px;
         }
 
         /* Шапка книги */
         .book-header {
             text-align: center;
-            padding: 40px 20px;
-            margin-bottom: 30px;
+            margin-bottom: 2rem;
         }
 
         .book-title {
             color: #2c3e50;
-            font-size: 2.2rem;
-            margin: 0;
+            font-size: 2rem;
+            margin: 0 0 0.5rem 0;
+            line-height: 1.2;
         }
 
         .book-author {
             color: #7f8c8d;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
         /* Оглавление */
         .toc {
-            padding: 25px 0;
-            margin: 20px 0;
+            margin: 2rem 0;
         }
 
         .toc ol {
@@ -52,90 +55,76 @@
         }
 
         .toc li {
-            margin-bottom: 10px;
+            margin-bottom: 0.8rem;
             break-inside: avoid;
         }
 
         .toc a {
             color: #3498db;
             text-decoration: none;
-            transition: color 0.3s;
-            padding: 5px 0;
             display: block;
-        }
-
-        .toc a:hover {
-            color: #2980b9;
+            padding: 0.3rem 0;
         }
 
         /* Главы */
         .chapter {
-            padding: 30px 0;
-            margin: 20px 0;
-            border-top: 1px solid #eee;
-        }
-
-        .chapter:first-child {
-            border-top: none;
+            margin: 3rem 0;
         }
 
         .chapter-title {
             color: #34495e;
-            font-size: 1.8rem;
-            margin: 0 0 25px 0;
+            font-size: 1.6rem;
+            margin: 0 0 1.5rem 0;
         }
 
         /* Навигация */
         .navigation {
             display: flex;
-            justify-content: space-between;
-            padding: 30px 0;
+            gap: 1rem;
+            justify-content: center;
+            margin: 3rem 0;
         }
 
         .nav-button {
-            padding: 12px 25px;
+            padding: 0.8rem 1.5rem;
             background: #34495e;
             color: white;
-            border-radius: 5px;
+            border-radius: 4px;
             text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .nav-button:hover {
-            background: #2c3e50;
+            transition: background 0.2s;
         }
 
         /* Адаптивность */
         @media (max-width: 768px) {
-            .book-title {
-                font-size: 1.8rem;
+            body {
+                font-size: 1rem;
             }
             
             .toc ol {
                 columns: 1;
             }
             
-            .chapter {
-                padding: 20px 0;
+            .book-title {
+                font-size: 1.8rem;
             }
             
             .chapter-title {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
             }
             
             .navigation {
-                flex-direction: column;
-                gap: 15px;
+                flex-wrap: wrap;
             }
         }
 
         @media (max-width: 480px) {
-            body {
-                font-size: 1rem;
+            main {
+                padding: 15px 10px;
             }
             
-            .book-header {
-                padding: 25px 15px;
+            .nav-button {
+                width: 100%;
+                text-align: center;
             }
         }
     </style>
@@ -160,13 +149,12 @@
     </header>
 
     <main>
-        <div class="book-content">
-            <div class="book-header">
-                <h1 class="book-title">Название книги</h1>
-                <p class="book-author">Автор: [Ваше имя]</p>
-            </div>
+        <div class="book-header">
+            <h1 class="book-title">Название книги</h1>
+            <p class="book-author">Автор: [Ваше имя]</p>
+        </div>
 
-            <div class="toc">
+        <div class="toc">
                 <h3>Оглавление</h3>
                 <ol>
                     <li><a href="#chapter1">ПРЕДИСЛОВИЕ</a></li>
@@ -219,6 +207,10 @@
             </p>
              
             </div>
+
+        <div class="navigation">
+            <a href="#" class="nav-button">Наверх ↑</a>
+            <a href="books.html" class="nav-button">Все книги</a>
         </div>
     </main>
 
