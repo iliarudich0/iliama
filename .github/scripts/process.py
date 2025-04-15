@@ -1,15 +1,12 @@
 from markdown import markdown
 from bs4 import BeautifulSoup
 import sys
+import html
 from datetime import datetime
 
 def process_content(body):
-    # Добавляем переносы для стихов
-    body = (
-        body.replace('"', '&quot;')
-            .replace('\n', '  \n')
-            .replace(':', ':  \n')  # Перенос после двоеточия
-    )
+    # Экранирование HTML-символов и сохранение переносов
+    body = html.escape(body).replace('\n', '  \n')
     return markdown(
         body, 
         extensions=['extra', 'nl2br', 'md_in_html'],
@@ -21,7 +18,7 @@ def add_entry(title, body):
     <div class="entry" onclick="toggleEntry(this)">
         <div class="entry-header">
             <div class="entry-date">{datetime.now().strftime("%d.%m.%Y")}</div>
-            <div class="entry-title">{title}</div>
+            <div class="entry-title">{html.escape(title)}</div>
             <div class="entry-toggle">▼</div>
         </div>
         <div class="entry-content">
@@ -37,8 +34,8 @@ def add_entry(title, body):
             f'{entry_html}\n<!-- NEW ENTRIES WILL BE ADDED HERE AUTOMATICALLY -->'
         )
         f.seek(0)
-        f.truncate()
         f.write(new_content)
+        f.truncate()
 
 if __name__ == "__main__":
     add_entry(sys.argv[1], sys.argv[2])
