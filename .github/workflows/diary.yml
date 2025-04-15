@@ -6,10 +6,12 @@ on:
 jobs:
   update-diary:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Добавьте это!
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Важно для истории коммитов
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -24,8 +26,8 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           python .github/scripts/process.py "${{ github.event.issue.title }}" "${{ github.event.issue.body }}"
-          git config --global user.name "Diary Bot"
-          git config --global user.email "actions@diary.com"
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
           git add thoughts.html
           git commit -m "Добавлена запись: ${{ github.event.issue.title }}"
           git push
