@@ -1,24 +1,19 @@
 from markdown import markdown
 from bs4 import BeautifulSoup
 import sys
-import html
 from datetime import datetime
 
 def process_content(body):
-    # Экранирование HTML-символов и сохранение переносов
-    body = html.escape(body).replace('\n', '  \n')
-    return markdown(
-        body, 
-        extensions=['extra', 'nl2br', 'md_in_html'],
-        output_format='html5'
-    )
+    # Сохраняем все переносы строк и экранируем HTML
+    body = body.replace('\n', '  \n')  # Двойной пробел для Markdown-переносов
+    return markdown(body, extensions=['extra', 'nl2br'])
 
 def add_entry(title, body):
     entry_html = f'''
     <div class="entry" onclick="toggleEntry(this)">
         <div class="entry-header">
             <div class="entry-date">{datetime.now().strftime("%d.%m.%Y")}</div>
-            <div class="entry-title">{html.escape(title)}</div>
+            <div class="entry-title">{title}</div>
             <div class="entry-toggle">▼</div>
         </div>
         <div class="entry-content">
