@@ -3,78 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Название проповеди | Библиотека Шалли</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Проповедь 1 | Библиотека Шалли</title>
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-  <header class="gradient-header">
+  <header>
     <div class="header-container">
-      <img src="1rs.jpg" alt="Ralph Shallis" class="profile-img">
+      <img src="../1rs.jpg" alt="Ralph Shallis" class="profile-img">
       <div>
         <h1>R.Shallis</h1>
         <nav>
-          <a href="index.html">Главная</a>
-          <a href="books.html">Книги</a>
-          <a href="sermons.html">Проповеди</a>
-          <a href="quotes.html">Цитаты</a>
-          <a href="testimonies.html">Свидетельства</a>
+          <a href="../index.html">Главная</a>
+          <a href="../books.html">Книги</a>
+          <a href="../sermons.html">Проповеди</a>
+          <a href="../quotes.html">Цитаты</a>
+          <a href="../testimonies.html">Свидетельства</a>
         </nav>
       </div>
     </div>
   </header>
 
-  <main class="sermon-container">
+  <main class="sermon-page">
     <div class="breadcrumbs">
-      <a href="sermons.html">Все проповеди</a> 
+      <a href="../sermons.html">Все проповеди</a> 
       <span class="separator">/</span>
-      <span>Название проповеди</span>
+      <span>Проповедь 1</span>
     </div>
 
     <article class="sermon-content">
-      <header class="sermon-header">
-        <h2 class="sermon-title">Название проповеди</h2>
-        <div class="sermon-meta">
-          <span class="date">15 января 1985</span>
-          <span class="duration">45 минут</span>
-          <span class="views">1.2k прослушиваний</span>
-        </div>
-      </header>
+      <h2>О Библии и её значении</h2>
+      <div class="sermon-meta">
+        <span class="date">15 января 1985</span>
+        <span class="duration">45 минут</span>
+      </div>
 
-      <div class="media-player glass-effect">
-        <audio controls class="custom-audio">
-          <source src="audio/sermon-1.mp3" type="audio/mpeg">
+      <div class="media-player">
+        <audio controls>
+          <source src="../audio/sermon-1.mp3" type="audio/mpeg">
           Ваш браузер не поддерживает аудио элементы.
         </audio>
       </div>
 
       <div class="sermon-text">
-        <h3 class="text-chapter">Основные тезисы</h3>
-        <p>Здесь будет полный текст проповеди...</p>
-        
-        <blockquote class="highlight-quote">
-          "Важная цитата из проповеди"
-        </blockquote>
+        <p>Полный текст проповеди будет здесь...</p>
       </div>
 
       <div class="action-buttons">
-        <a href="#" class="btn download-btn">
-          <span class="icon">↓</span> Скачать MP3
-        </a>
-        <a href="sermons.html" class="btn return-btn">
-          <span class="icon">←</span> Все проповеди
-        </a>
+        <a href="../sermons.html" class="btn">← Все проповеди</a>
       </div>
     </article>
   </main>
 
-  <footer class="gradient-footer">
-    <div class="footer-content">
-      <p>&copy; 2025 Библиотека Шалли</p>
-      <div class="footer-links">
-        <a href="#">О проекте</a>
-        <a href="#">Контакты</a>
-      </div>
-    </div>
+  <footer>
+    <p>&copy; 2025 Библиотека Шалли</p>
   </footer>
 </body>
 </html>
