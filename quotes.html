@@ -3,30 +3,138 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Цитаты Ральфа Шалли</title>
+  <title>Добро пожаловать! Здесь вы найдёте цитаты Ральфа Шалли на русском языке.</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Дополнительные стили для свидетельств */
+    .testimonies-container {
+      margin-top: 30px;
+    }
+    
+    .testimony-item {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .testimony-header {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      background: #f8f9fa;
+      cursor: pointer;
+      border-left: 4px solid #34495e;
+    }
+    
+    .testimony-number {
+      background: #34495e;
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+    
+    .testimony-title {
+      flex-grow: 1;
+    }
+    
+    .testimony-title h4 {
+      margin-bottom: 5px;
+      color: #2c3e50;
+    }
+    
+    .testimony-title i {
+      color: #7f8c8d;
+      font-size: 0.9em;
+    }
+    
+    .testimony-toggle {
+      font-size: 1.2em;
+      color: #34495e;
+      transition: transform 0.3s;
+    }
+    
+    .testimony-content {
+      padding: 0 15px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+    
+    .testimony-item.active .testimony-content {
+      max-height: 1000px;
+      padding: 15px;
+    }
+    
+    .testimony-item.active .testimony-toggle {
+      transform: rotate(180deg);
+    }
+    
+    .testimony-content p {
+      line-height: 1.7;
+      color: #34495e;
+    }
+  </style>
 </head>
 <body>
   <header>
     <div class="header-container">
       <img src="1rs.jpg" alt="Ralph Shallis" class="profile-img" />
       <div>
-        <h1>R.Shallis</h1>
+       <h1>R.Shallis</h1>
         <nav>
           <a href="index.html">Главная</a><br>
           <a href="books.html">Книги</a><br>
           <a href="sermons.html">Проповеди</a><br>
           <a href="quotes.html">Цитаты</a><br>
           <a href="testimonies.html">Свидетельства о Ральфе</a>
-          
-          
         </nav>
       </div>
     </div>
   </header>
 
   <main>
-    <p>Добро пожаловать! Здесь вы найдёте цитаты Ральфа Шалли на русском языке.</p>
+    <h1><b>Добро пожаловать! Здесь вы найдёте цитаты Ральфа Шалли на русском языке.</b></h1>
+    
+    <div class="testimonies-container">
+      <!-- Свидетельство 1 -->
+      <div class="testimony-item" onclick="toggleTestimony(this)">
+        <div class="testimony-header">
+          <div class="testimony-number">1</div>
+          <div class="testimony-title">
+            <h4><b>Биргминхам, Англия (</b></h4>
+            <i>проповедь о Духе Святом 1-ая часть.</i>
+          </div>
+          <div class="testimony-toggle">▼</div>
+        </div>
+        <div class="testimony-content">
+          <p>
+           Когда меня впервые попросили заняться темой о Духе Святом, моя первая реакция была — радость и удовольствие. Я подумал: как замечательно заняться этой темой, которая имеет столь важное значение. Но потом, особенно после того, как я приехал в Англию позавчера и немного узнал об удивительно сложной духовной ситуации здесь, в Англии, о возрождённых спорах, путанице и конфликтах вокруг этой прекрасной темы, мои чувства изменились. Это заставило меня подумать о том, что пожалуй любая другая тема была бы мне предпочтительнее чем эта, о Духе Святом.<br>
+
+Существует три великие темы в Библии, которые сатана ненавидит. <br>Он не хочет, чтобы их преподавали. Он не хочет, чтобы мы вообще к ним обращались. Можно даже сказать, что таких тем четыре. <br><b>Первая</b>Первая — это истинное учение о спасении по вере. Оправдание по вере.<br> Но три другие темы, которые долгое время вызывают большие споры, — это <i><b>тема Святого Духа (без правильного понимания которой невозможно правильно жить христианской жизнью),</b> тема Второго пришествия Господа и тема истинной церкви Иисуса Христа.</i><br>
+
+Сатане выгодно держать нас в неведении, в заблуждении или увести нас в ложном направлении в вопросах о Святом Духе. Он изо всех сил старается исключить эту тему из проповедей и из нашего сознания. А если не может, то вносит всяческую путаницу.<br>
+
+Вторая тема — Второе пришествие Господа. И теперь, когда оно так близко — в этом нет никаких сомнений — сатана словно завесой ослепляет сердца церкви. Об этом почти не проповедуют. И частично это связано с разногласиями, частично — с путаницей, но прежде всего потому, что сатана просто не хочет, чтобы об этом говорили. Он хочет, чтобы мы были полностью невежественны в отношении происходящего в мире и того, что произойдёт в будущем.<br>
+
+Третья тема, которую сатана особенно ненавидит, — это тема истинной церкви Иисуса Христа, потому что он знает: если бы мы только восстановили подлинное понимание церкви, которую задумал Христос, — весь мир буквально перевернулся бы.<br>
+
+<b>Итак, говоря о Святом Духе, я могу это делать только с великой смиренностью и даже с некоторым трепетом, но осознавая, что истина Божья — кристально ясна и её необходимо провозглашать. Необходимо проповедовать.  </b> </p>
+        </div>
+      </div>
+      
+  
+</div>
+    
   </main>
 
   <footer>
@@ -39,5 +147,19 @@
     <a href='https://www.versicherungen.at/' target="_blank">Versicherungen.at</a>
     <script type='text/javascript' src='https://whomania.com/ctr?id=2c058350e6976ba9598445b59774dc26c610151e'></script>
   </div>
+
+  <script>
+    function toggleTestimony(element) {
+      element.classList.toggle('active');
+      
+      // Закрываем другие открытые свидетельства
+      const allTestimonies = document.querySelectorAll('.testimony-item');
+      allTestimonies.forEach(item => {
+        if (item !== element && item.classList.contains('active')) {
+          item.classList.remove('active');
+        }
+      });
+    }
+  </script>
 </body>
 </html>
