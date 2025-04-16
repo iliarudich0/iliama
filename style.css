@@ -158,3 +158,95 @@ footer {
   margin: 0;
 }
 
+/* Стили для страницы отдельной проповеди */
+.sermon-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.breadcrumbs {
+  margin-bottom: 20px;
+  font-size: 0.9em;
+  color: #666;
+}
+
+.sermon-content {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+  margin-top: 20px;
+}
+
+.media-player {
+  margin: 20px 0;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.media-player iframe {
+  width: 100%;
+  height: 500px;
+  border: none;
+}
+
+audio {
+  width: 100%;
+  margin: 20px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.sermon-text {
+  line-height: 1.8;
+  font-size: 1.1em;
+  margin: 30px 0;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.additional-materials {
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+  margin-top: 30px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .media-player iframe {
+    height: 300px;
+  }
+  
+  .sermon-content {
+    padding: 15px;
+  }
+  
+  .profile-img {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .media-player iframe {
+    height: 200px;
+  }
+  
+  .sermon-text {
+    font-size: 1em;
+    padding: 15px;
+  }
+  
+  header h1 {
+    font-size: 1.5rem;
+  }
+  
+  nav a {
+    display: block;
+    margin: 5px 0;
+  }
+}
