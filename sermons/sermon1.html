@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
+  <header class="gradient-header">
     <div class="header-container">
       <img src="1rs.jpg" alt="Ralph Shallis" class="profile-img">
       <div>
@@ -25,42 +25,56 @@
 
   <main class="sermon-container">
     <div class="breadcrumbs">
-      <a href="sermons.html">Все проповеди</a> &gt; 
+      <a href="sermons.html">Все проповеди</a> 
+      <span class="separator">/</span>
       <span>Название проповеди</span>
     </div>
 
     <article class="sermon-content">
-      <h2>Название проповеди</h2>
-      <p class="sermon-meta">Дата: ДД.ММ.ГГГГ | Длительность: XX мин</p>
-      
-      <!-- Аудио-плеер -->
-      <div class="media-player">
-        <audio controls>
+      <header class="sermon-header">
+        <h2 class="sermon-title">Название проповеди</h2>
+        <div class="sermon-meta">
+          <span class="date">15 января 1985</span>
+          <span class="duration">45 минут</span>
+          <span class="views">1.2k прослушиваний</span>
+        </div>
+      </header>
+
+      <div class="media-player glass-effect">
+        <audio controls class="custom-audio">
           <source src="audio/sermon-1.mp3" type="audio/mpeg">
           Ваш браузер не поддерживает аудио элементы.
         </audio>
       </div>
 
-      <!-- Текст проповеди -->
       <div class="sermon-text">
+        <h3 class="text-chapter">Основные тезисы</h3>
         <p>Здесь будет полный текст проповеди...</p>
-        <p>Вы можете добавить столько абзацев, сколько нужно.</p>
-        <p>Форматирование сохранится автоматически.</p>
+        
+        <blockquote class="highlight-quote">
+          "Важная цитата из проповеди"
+        </blockquote>
       </div>
 
-      <!-- Дополнительные материалы -->
-      <div class="additional-materials">
-        <h3>Дополнительные материалы</h3>
-        <ul>
-          <li><a href="#" class="btn">Скачать текст (PDF)</a></li>
-          <li><a href="sermons.html" class="btn">Все проповеди</a></li>
-        </ul>
+      <div class="action-buttons">
+        <a href="#" class="btn download-btn">
+          <span class="icon">↓</span> Скачать MP3
+        </a>
+        <a href="sermons.html" class="btn return-btn">
+          <span class="icon">←</span> Все проповеди
+        </a>
       </div>
     </article>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Библиотека Шалли. Все права защищены.</p>
+  <footer class="gradient-footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Библиотека Шалли</p>
+      <div class="footer-links">
+        <a href="#">О проекте</a>
+        <a href="#">Контакты</a>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
