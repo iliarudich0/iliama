@@ -3,94 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Книга</title>
+    <title>Чудо Духа - Ральф Шалли</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-        /* Основные стили */
-        body {
+        /* Дополнительные стили для книги */
+        :root {
+            --book-bg: #2c3e50;
+            --book-text: #ecf0f1;
+            --book-link: #3498db;
+        }
+
+        .book-container {
+            max-width: 100%;
             margin: 0;
-            padding: 20px;
-            background: #333;
-            color: #e0e0e0;
+            padding: 2rem;
+            background: var(--book-bg);
+            color: var(--book-text);
             line-height: 1.8;
-            font-size: 1.1rem;
+        }
+
+        .book-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .book-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .toc {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .toc ol {
+            padding-left: 2rem;
+        }
+
+        .toc a {
+            color: var(--book-link);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .toc a:hover {
+            color: var(--accent);
         }
 
         .chapter {
-            max-width: 800px;
-            margin: 0 auto;
+            max-width: 100%;
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* Сноски в тексте */
-        .footnote {
-            color: #7fa8ff;
-            text-decoration: none;
-            font-size: 0.8em;
-            vertical-align: super;
-            margin-left: 3px;
+        .chapter-title {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
         }
 
-        /* Блок сносок */
         .footnotes {
-            margin-top: 50px;
-            padding: 20px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 5px;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(0,0,0,0.2);
+            border-radius: 8px;
         }
 
         .footnote-item {
-            margin: 15px 0;
-            color: #a0a0a0;
+            margin: 1rem 0;
+            font-size: 0.9em;
         }
 
-        /* Ссылки на Библию */
         .bible-link {
-            color: #7fa8ff;
+            background: var(--book-link);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            margin-left: 1rem;
             text-decoration: none;
-            margin-left: 10px;
-            border: 1px solid;
-            padding: 2px 8px;
-            border-radius: 3px;
-            transition: all 0.3s;
         }
 
-        .bible-link:hover {
-            background: #7fa8ff;
-            color: #333;
-        }
-
-        /* Кнопка "Назад" */
         .back-link {
-            color: #7fa8ff;
+            color: var(--book-link);
+            margin-left: 1rem;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-button {
+            background: var(--accent);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
             text-decoration: none;
-            margin-left: 15px;
-            padding: 2px 8px;
-            border: 1px solid;
-            border-radius: 3px;
+            transition: transform 0.3s;
         }
 
-        /* Плавная прокрутка */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Адаптивность */
         @media (max-width: 768px) {
-            body {
-                font-size: 1rem;
-                padding: 15px;
+            .book-container {
+                padding: 1rem;
             }
             
-            .bible-link, .back-link {
-                display: block;
-                margin: 5px 0;
-                width: fit-content;
+            .book-title {
+                font-size: 1.8rem;
+            }
+            
+            .chapter-title {
+                font-size: 1.5rem;
+            }
+            
+            .navigation {
+                bottom: 1rem;
+                right: 1rem;
             }
         }
     </style>
 </head>
 <body>
+    <header>
+        <div class="header-container">
+            <img src="1rs.jpg" alt="Ralph Shallis" class="profile-img">
+            <div>
+                <h1>R.Shallis</h1>
+                <nav>
+                    <a href="index.html">Главная</a>
+                    <a href="books.html">Книги</a>
+                    <a href="sermons.html">Проповеди</a>
+                    <a href="quotes.html">Цитаты</a>
+                    <a href="testimonies.html">Свидетельства</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
 
-  <div class="book-header">
+    <main class="book-container">
+        <!-- Вставьте здесь всё содержимое вашей книги -->
+        <div class="book-header">
             <h1 class="book-title">Чудо Духа</h1>
             <p class="book-author">Автор: Ральф Шалли</p>
         </div>
@@ -188,6 +247,19 @@
             <a href="books.html" class="nav-button">Все книги</a>
         </div>
 </div>
+        <!-- Сохраните всю существующую структуру с классами -->
+    </main>
 
+    <script>
+        // Плавная прокрутка
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
