@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Чудо Духа - Ральф Шалли</title>
     <link rel="stylesheet" href="style.css">
-  <style>
+<style>
     /* Базовые стили страницы книги */
     .book-page {
         --book-bg: #2c3e50;
@@ -117,6 +117,7 @@
         transition: all 0.3s;
         text-decoration: underline dotted;
         white-space: nowrap;
+        font-size: 1em;
     }
 
     .bible-ref:hover {
@@ -226,6 +227,7 @@
     @media (max-width: 768px) {
         .book-container {
             padding: 1rem;
+            font-size: 1rem;
         }
 
         .book-title {
@@ -258,8 +260,13 @@
         }
 
         .bible-ref {
-            font-size: 1.1em;
-            padding: 3px 6px;
+            font-size: 0.95em;
+            padding: 2px 4px;
+            white-space: normal;
+        }
+
+        .bible-ref::after {
+            font-size: 0.7em;
         }
     }
 
@@ -279,6 +286,16 @@
         .bible-verse {
             font-size: 1rem;
             padding: 10px;
+        }
+
+        .bible-ref {
+            font-size: 0.9em;
+            display: inline-block;
+            margin: 2px 0;
+        }
+
+        .bible-ref:not(:visited) {
+            animation: none;
         }
     }
 
