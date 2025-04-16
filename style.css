@@ -250,3 +250,155 @@ audio {
     margin: 5px 0;
   }
 }
+/* ==================== УЛУЧШЕННЫЕ СТИЛИ ==================== */
+
+/* Общие улучшения */
+body {
+  background-color: #f8f9fa;
+  color: #333;
+  line-height: 1.7;
+}
+
+/* Улучшенный header */
+header {
+  background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+  padding: 25px 0;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.profile-img {
+  border: 5px solid rgba(255,255,255,0.2);
+  transition: all 0.3s ease;
+}
+
+.profile-img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* Улучшенная навигация */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+}
+
+nav a {
+  padding: 8px 15px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.1);
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  background: rgba(255,215,0,0.2);
+  color: #ffd700;
+  transform: translateY(-2px);
+}
+
+/* Улучшенный main контент */
+main {
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+main:hover {
+  transform: translateY(-3px);
+}
+
+/* Стили для страницы проповедей */
+.sermon-content {
+  border-left: 5px solid #3498db;
+}
+
+.media-player {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.media-player:hover {
+  transform: scale(1.01);
+}
+
+audio {
+  background: #f1f5f9;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+/* Улучшенный текст проповедей */
+.sermon-text {
+  background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 100%);
+  border-radius: 12px;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.03);
+}
+
+/* Анимации и hover-эффекты */
+.sermon-item {
+  transition: all 0.3s ease;
+}
+
+.sermon-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+/* Улучшенный footer */
+footer {
+  background: #34495e;
+  color: #ecf0f1;
+  padding: 25px 0;
+  margin-top: 50px;
+  border-radius: 8px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  nav {
+    justify-content: center;
+  }
+  
+  .profile-img {
+    margin-bottom: 15px;
+  }
+}
+
+/* Специальные эффекты */
+h1, h2, h3 {
+  position: relative;
+}
+
+h1::after, h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #3498db;
+  margin: 15px 0;
+  border-radius: 2px;
+}
+
+/* Кнопки и интерактивные элементы */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #3498db;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
