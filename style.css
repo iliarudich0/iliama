@@ -1,3 +1,12 @@
+/* Основные стили */
+:root {
+  --primary: #2c3e50;
+  --secondary: #3498db;
+  --accent: #ffd700;
+  --light: #f8f9fa;
+  --dark: #1a252f;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,354 +14,293 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  background-color: #f4f4f9;
-  color: #333;
+  font-family: 'Merriweather', serif;
+  background: var(--light);
+  color: var(--dark);
+  line-height: 1.8;
   padding: 20px;
 }
 
-header {
-  background-color: #34495e;
-  color: white;
-  padding: 20px 0;
-  margin-bottom: 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+/* Шапка */
+.gradient-header {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+  padding: 1.5rem 0;
+  margin-bottom: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
 .header-container {
   display: flex;
   align-items: center;
   gap: 20px;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
 .profile-img {
-  width: 160px; /* больше размер */
+  width: 160px;
   height: 160px;
   border-radius: 50%;
   object-fit: cover;
-  object-position: 60% 50%; /* сдвиг влево-вправо: 60% — немного вправо */
-  border: 4px solid white;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* тень для объёма */
+  border: 4px solid rgba(255,255,255,0.15);
+  transition: transform 0.3s ease;
 }
 
+.profile-img:hover {
+  transform: rotate(-2deg) scale(1.03);
+}
 
-header h1 {
-  font-size: 1.8rem;
-  margin-bottom: 10px;
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 nav a {
-  margin-right: 15px;
+  padding: 0.8rem 1.2rem;
   text-decoration: none;
   color: #f1f1f1;
-  font-weight: bold;
-  transition: color 0.3s;
+  border-radius: 50px;
+  background: rgba(255,255,255,0.05);
+  transition: all 0.3s ease;
 }
 
 nav a:hover {
-  color: #ffd700;
+  background: var(--accent);
+  color: var(--dark);
+  transform: translateY(-2px);
 }
 
-main {
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
+.active {
+  background: var(--secondary) !important;
+}
+
+/* Главная страница проповедей */
+.sermon-archive {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #7f8c8d;
+  margin-bottom: 40px;
+}
+
+.sermon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.sermon-card {
   background: white;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-footer {
-  text-align: center;
-  margin-top: 40px;
-  padding: 10px;
-  color: #777;
+.sermon-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
 }
 
-.counters {
-  text-align: center;
-  margin-top: 20px;
+.card-image {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sermon-card:hover .card-overlay {
+  opacity: 1;
+}
+
+.play-icon {
+  font-size: 3rem;
+  color: white;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.card-content h3 {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.card-meta {
+  display: flex;
+  justify-content: space-between;
+  color: #95a5a6;
   font-size: 0.9em;
 }
 
-.book-list ul {
-  list-style: none;
-  padding: 0;
-}
-
-.book-list li {
-  margin-bottom: 15px;
-  background: #f9f9f9;
-  padding: 12px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  transition: background 0.3s ease;
-}
-
-.book-list li:hover {
-  background: #eaf3ff;
-}
-
-.book-list a {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: #2980b9;
-  font-weight: 500;
-  font-size: 1.05rem;
-}
-
-.book-list a img {
-  width: 50px;
-  height: 70px;
-  object-fit: cover;
-  margin-right: 15px;
-  border-radius: 4px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-}
-
-.book-list a span {
-  flex: 1;
-}
-
-.sermon-list {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-}
-
-.sermon-list h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  color: #2c3e50;
-}
-
-.sermon-item {
-  margin-bottom: 30px;
-  padding: 15px;
-  background: #f8f9fa;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  text-align: center;
-}
-
-.sermon-item iframe {
-  width: 100%;
-  max-width: 560px;
-  height: 315px;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-
-.sermon-item p {
-  font-size: 1.05rem;
-  color: #34495e;
-  margin: 0;
-}
-
-/* Стили для страницы отдельной проповеди */
+/* Страница проповеди */
 .sermon-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 20px;
 }
 
 .breadcrumbs {
-  margin-bottom: 20px;
-  font-size: 0.9em;
-  color: #666;
+  margin-bottom: 2rem;
+  font-size: 0.95em;
+}
+
+.breadcrumbs a {
+  color: var(--secondary);
+  text-decoration: none;
 }
 
 .sermon-content {
   background: white;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-  margin-top: 20px;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
 }
 
-.media-player {
-  margin: 20px 0;
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  border-radius: 8px;
+.sermon-title {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
-.media-player iframe {
-  width: 100%;
-  height: 500px;
-  border: none;
+.sermon-meta {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  color: #95a5a6;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
 }
 
-audio {
+.glass-effect {
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+
+.custom-audio {
   width: 100%;
-  margin: 20px 0;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  height: 50px;
+  border-radius: 25px;
+  background: var(--light);
+  border: 1px solid #eee;
 }
 
 .sermon-text {
   line-height: 1.8;
-  font-size: 1.1em;
-  margin: 30px 0;
-  padding: 20px;
-  background: #f8f9fa;
-  border-radius: 8px;
+  margin: 2rem 0;
 }
 
-.additional-materials {
-  border-top: 1px solid #eee;
-  padding-top: 20px;
-  margin-top: 30px;
+.highlight-quote {
+  border-left: 4px solid var(--accent);
+  padding: 1.5rem;
+  margin: 2rem 0;
+  background: rgba(255,215,0,0.05);
+  font-style: italic;
+  color: var(--primary);
 }
 
-/* Адаптивность */
-@media (max-width: 768px) {
-  .media-player iframe {
-    height: 300px;
-  }
-  
-  .sermon-content {
-    padding: 15px;
-  }
-  
-  .profile-img {
-    width: 120px;
-    height: 120px;
-  }
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
 }
 
-@media (max-width: 480px) {
-  .media-player iframe {
-    height: 200px;
-  }
-  
-  .sermon-text {
-    font-size: 1em;
-    padding: 15px;
-  }
-  
-  header h1 {
-    font-size: 1.5rem;
-  }
-  
-  nav a {
-    display: block;
-    margin: 5px 0;
-  }
-}
-/* ==================== УЛУЧШЕННЫЕ СТИЛИ ==================== */
-
-/* Общие улучшения */
-body {
-  background-color: #f8f9fa;
-  color: #333;
-  line-height: 1.7;
+.btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  cursor: pointer;
 }
 
-/* Улучшенный header */
-header {
-  background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
-  padding: 25px 0;
-  margin-bottom: 40px;
+.download-btn {
+  background: var(--secondary);
+  color: white;
+}
+
+.return-btn {
+  background: var(--primary);
+  color: white;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-.profile-img {
-  border: 5px solid rgba(255,255,255,0.2);
-  transition: all 0.3s ease;
+/* Подвал */
+.gradient-footer {
+  background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
+  color: white;
+  padding: 2rem 0;
+  margin-top: 4rem;
+  border-radius: 12px;
 }
 
-.profile-img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
-
-/* Улучшенная навигация */
-nav {
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px 20px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
 }
 
-nav a {
-  padding: 8px 15px;
-  border-radius: 6px;
-  background: rgba(255,255,255,0.1);
-  transition: all 0.3s ease;
+.footer-links a {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  margin-left: 1.5rem;
+  transition: color 0.3s ease;
 }
 
-nav a:hover {
-  background: rgba(255,215,0,0.2);
-  color: #ffd700;
-  transform: translateY(-2px);
-}
-
-/* Улучшенный main контент */
-main {
-  border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-  overflow: hidden;
-  transition: transform 0.3s ease;
-}
-
-main:hover {
-  transform: translateY(-3px);
-}
-
-/* Стили для страницы проповедей */
-.sermon-content {
-  border-left: 5px solid #3498db;
-}
-
-.media-player {
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-
-.media-player:hover {
-  transform: scale(1.01);
-}
-
-audio {
-  background: #f1f5f9;
-  padding: 10px;
-  border-radius: 12px;
-}
-
-/* Улучшенный текст проповедей */
-.sermon-text {
-  background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 100%);
-  border-radius: 12px;
-  box-shadow: inset 0 0 10px rgba(0,0,0,0.03);
-}
-
-/* Анимации и hover-эффекты */
-.sermon-item {
-  transition: all 0.3s ease;
-}
-
-.sermon-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-}
-
-/* Улучшенный footer */
-footer {
-  background: #34495e;
-  color: #ecf0f1;
-  padding: 25px 0;
-  margin-top: 50px;
-  border-radius: 8px;
+.footer-links a:hover {
+  color: var(--accent);
 }
 
 /* Адаптивность */
@@ -361,44 +309,49 @@ footer {
     flex-direction: column;
     text-align: center;
   }
-  
+
+  .profile-img {
+    margin-bottom: 1rem;
+  }
+
   nav {
     justify-content: center;
   }
-  
-  .profile-img {
-    margin-bottom: 15px;
+
+  .sermon-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sermon-title {
+    font-size: 1.8rem;
+  }
+
+  .sermon-content {
+    padding: 1.5rem;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .footer-links a {
+    margin: 0 0.5rem;
   }
 }
 
-/* Специальные эффекты */
-h1, h2, h3 {
-  position: relative;
-}
+@media (max-width: 480px) {
+  .card-image {
+    height: 160px;
+  }
 
-h1::after, h2::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 4px;
-  background: #3498db;
-  margin: 15px 0;
-  border-radius: 2px;
-}
+  .sermon-meta {
+    flex-direction: column;
+    align-items: center;
+  }
 
-/* Кнопки и интерактивные элементы */
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background: #3498db;
-  color: white;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.btn:hover {
-  background: #2980b9;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  .action-buttons {
+    flex-direction: column;
+  }
 }
