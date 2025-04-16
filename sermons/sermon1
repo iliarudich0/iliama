@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Название проповеди | Библиотека Шалли</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <img src="1rs.jpg" alt="Ralph Shallis" class="profile-img">
+      <div>
+        <h1>R.Shallis</h1>
+        <nav>
+          <a href="index.html">Главная</a>
+          <a href="books.html">Книги</a>
+          <a href="sermons.html">Проповеди</a>
+          <a href="quotes.html">Цитаты</a>
+          <a href="testimonies.html">Свидетельства</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="sermon-container">
+    <div class="breadcrumbs">
+      <a href="sermons.html">Все проповеди</a> &gt; 
+      <span>Название проповеди</span>
+    </div>
+
+    <article class="sermon-content">
+      <h2>Название проповеди</h2>
+      <p class="sermon-meta">Дата: ДД.ММ.ГГГГ | Длительность: XX мин</p>
+      
+      <!-- Аудио-плеер -->
+      <div class="media-player">
+        <audio controls>
+          <source src="audio/sermon-1.mp3" type="audio/mpeg">
+          Ваш браузер не поддерживает аудио элементы.
+        </audio>
+      </div>
+
+      <!-- Текст проповеди -->
+      <div class="sermon-text">
+        <p>Здесь будет полный текст проповеди...</p>
+        <p>Вы можете добавить столько абзацев, сколько нужно.</p>
+        <p>Форматирование сохранится автоматически.</p>
+      </div>
+
+      <!-- Дополнительные материалы -->
+      <div class="additional-materials">
+        <h3>Дополнительные материалы</h3>
+        <ul>
+          <li><a href="#" class="btn">Скачать текст (PDF)</a></li>
+          <li><a href="sermons.html" class="btn">Все проповеди</a></li>
+        </ul>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Библиотека Шалли. Все права защищены.</p>
+  </footer>
+</body>
+</html>
