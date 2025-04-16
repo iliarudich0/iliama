@@ -5,129 +5,236 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Чудо Духа - Ральф Шалли</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Дополнительные стили для книги */
-        :root {
-            --book-bg: #2c3e50;
-            --book-text: #ecf0f1;
-            --book-link: #3498db;
-        }
+   <style>
+    /* Базовые стили страницы книги */
+    .book-page {
+        --book-bg: #2c3e50;
+        --book-text: #ecf0f1;
+        --book-link: #3498db;
+        --book-accent: #e67e22;
+        --book-border: rgba(255,255,255,0.1);
+    }
 
+    /* Основной контейнер */
+    .book-container {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 2rem;
+        background: var(--book-bg);
+        color: var(--book-text);
+        line-height: 1.8;
+        min-height: 100vh;
+    }
+
+    /* Заголовок книги */
+    .book-header {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding: 2rem 0;
+        border-bottom: 2px solid var(--book-border);
+    }
+
+    .book-title {
+        font-size: 2.5rem;
+        margin: 0 0 1rem;
+        color: var(--book-accent);
+        text-transform: uppercase;
+    }
+
+    /* Оглавление */
+    .toc {
+        background: rgba(255,255,255,0.05);
+        padding: 2rem;
+        border-radius: 8px;
+        margin: 3rem 0;
+        backdrop-filter: blur(5px);
+    }
+
+    .toc ol {
+        padding-left: 2rem;
+        column-count: 2;
+        column-gap: 3rem;
+    }
+
+    .toc li {
+        margin-bottom: 1rem;
+        break-inside: avoid;
+    }
+
+    .toc a {
+        color: var(--book-link);
+        text-decoration: none;
+        transition: color 0.3s;
+        display: block;
+        padding: 0.3rem 0;
+    }
+
+    .toc a:hover {
+        color: var(--book-accent);
+        transform: translateX(5px);
+    }
+
+    /* Главы */
+    .chapter {
+        padding: 3rem 0;
+        border-bottom: 1px solid var(--book-border);
+    }
+
+    .chapter:last-child {
+        border-bottom: none;
+    }
+
+    .chapter-title {
+        color: var(--book-accent);
+        margin: 0 0 2rem;
+        font-size: 2rem;
+        font-weight: 600;
+        position: relative;
+        padding-left: 1.5rem;
+    }
+
+    .chapter-title::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0.5em;
+        height: 1em;
+        width: 5px;
+        background: var(--book-accent);
+    }
+
+    /* Сноски */
+    .footnotes {
+        margin-top: 4rem;
+        padding: 2rem;
+        background: rgba(0,0,0,0.15);
+        border-radius: 8px;
+    }
+
+    .footnote-item {
+        margin: 1.5rem 0;
+        font-size: 0.9em;
+        line-height: 1.6;
+    }
+
+    /* Навигация */
+    .book-navigation {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        display: flex;
+        gap: 1rem;
+        z-index: 100;
+    }
+
+    .nav-button {
+        background: var(--book-accent);
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 25px;
+        text-decoration: none;
+        transition: transform 0.3s;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+
+    .nav-button:hover {
+        transform: translateY(-2px);
+    }
+
+    /* Модальное окно для стихов */
+    .bible-popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.8);
+        z-index: 1000;
+        backdrop-filter: blur(3px);
+    }
+
+    .popup-content {
+        position: relative;
+        max-width: 600px;
+        margin: 5% auto;
+        padding: 2rem;
+        background: var(--book-bg);
+        border-radius: 12px;
+        box-shadow: 0 0 30px rgba(0,0,0,0.4);
+    }
+
+    .bible-verse {
+        color: var(--book-text);
+        font-size: 1.1em;
+        line-height: 1.8;
+        margin: 1rem 0;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 1rem;
+        right: 1.5rem;
+        font-size: 2rem;
+        cursor: pointer;
+        color: var(--book-link);
+        transition: transform 0.3s;
+    }
+
+    .close-btn:hover {
+        transform: rotate(90deg);
+    }
+
+    /* Адаптивность */
+    @media (max-width: 768px) {
         .book-container {
-            max-width: 100%;
-            margin: 0;
-            padding: 2rem;
-            background: var(--book-bg);
-            color: var(--book-text);
-            line-height: 1.8;
-        }
-
-        .book-header {
-            text-align: center;
-            margin-bottom: 3rem;
+            padding: 1rem;
         }
 
         .book-title {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--accent);
-        }
-
-        .toc {
-            background: rgba(255,255,255,0.1);
-            padding: 2rem;
-            border-radius: 8px;
-            margin: 2rem 0;
+            font-size: 1.8rem;
         }
 
         .toc ol {
-            padding-left: 2rem;
-        }
-
-        .toc a {
-            color: var(--book-link);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .toc a:hover {
-            color: var(--accent);
-        }
-
-        .chapter {
-            max-width: 100%;
-            padding: 2rem 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            column-count: 1;
         }
 
         .chapter-title {
-            color: var(--accent);
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
+            font-size: 1.6rem;
         }
 
-        .footnotes {
-            margin-top: 3rem;
-            padding: 2rem;
-            background: rgba(0,0,0,0.2);
-            border-radius: 8px;
-        }
-
-        .footnote-item {
-            margin: 1rem 0;
-            font-size: 0.9em;
-        }
-
-        .bible-link {
-            background: var(--book-link);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 4px;
-            margin-left: 1rem;
-            text-decoration: none;
-        }
-
-        .back-link {
-            color: var(--book-link);
-            margin-left: 1rem;
-        }
-
-        .navigation {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            display: flex;
-            gap: 1rem;
+        .book-navigation {
+            bottom: 1rem;
+            right: 1rem;
+            flex-direction: column;
         }
 
         .nav-button {
-            background: var(--accent);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            text-decoration: none;
-            transition: transform 0.3s;
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
         }
 
-        @media (max-width: 768px) {
-            .book-container {
-                padding: 1rem;
-            }
-            
-            .book-title {
-                font-size: 1.8rem;
-            }
-            
-            .chapter-title {
-                font-size: 1.5rem;
-            }
-            
-            .navigation {
-                bottom: 1rem;
-                right: 1rem;
-            }
+        .popup-content {
+            width: 90%;
+            margin: 20% auto;
+            padding: 1.5rem;
         }
-    </style>
+    }
+
+    @media (max-width: 480px) {
+        .book-title {
+            font-size: 1.5rem;
+        }
+
+        .chapter-title {
+            font-size: 1.3rem;
+        }
+
+        .toc {
+            padding: 1rem;
+        }
+    }
+</style>
 </head>
 <body>
     <header>
@@ -213,7 +320,7 @@
                 <p>
                     К МОЕМУ ЧИТАТЕЛЮ<br>
 Написать книгу о Том, Кто дал мне жизнь и благодаря Кому я существую, было бы чистым безумием, если бы у меня не было единственного ориентира — того, что Бог называет «Своим Словом», а люди называют «Библией». Он Сам является её Автором и письменно определяет для людей Свою мысль; короче говоря, Бог открывает нам Своё сердце.
-Как можно заключить в простую книгу мысль Того, Кто является источником всякого разума, Того, Кто недоступен рассуждениям философов или некоторых учёных, Того, Кто есть источник невероятно сложной энергии всей вселенной и Кто стоит у истоков чуда биологической клетки или генетического кода? Соломон говорил при освящении своего великолепного храма: <a href="#fn1" class="footnote" id="ref1">«Небеса и небеса небес не могут вместить Тебя!»¹</a>
+Как можно заключить в простую книгу мысль Того, Кто является источником всякого разума, Того, Кто недоступен рассуждениям философов или некоторых учёных, Того, Кто есть источник невероятно сложной энергии всей вселенной и Кто стоит у истоков чуда биологической клетки или генетического кода? Соломон говорил при освящении своего великолепного храма: <span class="bible-ref" data-verse="2par6-18">«Небеса и небеса небес не могут вместить Тебя!»¹</span>
 Ни один человек не может пережить невероятный опыт «встречи с Богом» без того, чтобы не быть потрясённым, входя в близость с Архитектором Млечного Пути, Создателем вселенной и человечества; лицом к лицу с «великим поэтом», Который рождает свежее возрождение весны, Который задумывает зарождение младенца, — это просто возвращение к истоку своего бытия.
 Слушать этот голос — значит открыть абсолютную музыку.
 Кто не будет потрясён, услышав Голос, Который кричит нам о невыразимой красоте неизмеримой любви, когда Он касается нашего сознания через уста и измученное, обезображенное лицо того тридцатитрёхлетнего юноши, распятого, Которого и сегодня называют Иисусом из Назарета? Кто может измерить безумную преступность нашего человеческого рода, способного на такое убийство? Кто может постичь неисчерпаемые ресурсы такого божественного сострадания, которое дарует прощение?
@@ -261,5 +368,53 @@
             });
         });
     </script>
+
+    <!-- Добавьте этот HTML в нужное место страницы -->
+<div class="bible-popup" id="biblePopup">
+    <div class="popup-content">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <div class="bible-verse" id="verseContent">
+            <!-- Текст стиха будет здесь -->
+        </div>
+    </div>
+</div>
+
+<!-- Скрипт для работы попапов -->
+<script>
+    // Библиотека стихов (добавьте все нужные стихи)
+    const bibleVerses = {
+        '2par6-18': `И сказал Соломон: "Но поистине Богу ли обитать на земле? Небо и небо небес не вмещают Тебя, тем менее сей храм, который я построил". (2 Пар. 6:18, Синодальный перевод)`,
+        // Добавьте другие стихи по образцу
+    };
+
+    // Обработчик клика на ссылку
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('bible-ref')) {
+            const verseId = e.target.dataset.verse;
+            showVerse(verseId);
+        }
+    });
+
+    // Показать попап
+    function showVerse(verseId) {
+        const popup = document.getElementById('biblePopup');
+        const content = document.getElementById('verseContent');
+        content.innerHTML = bibleVerses[verseId] || 'Стих не найден';
+        popup.style.display = 'block';
+    }
+
+    // Закрыть попап
+    function closePopup() {
+        document.getElementById('biblePopup').style.display = 'none';
+    }
+
+    // Закрытие при клике вне окна
+    window.onclick = function(e) {
+        const popup = document.getElementById('biblePopup');
+        if (e.target === popup) {
+            popup.style.display = 'none';
+        }
+    }
+</script>
 </body>
 </html>
