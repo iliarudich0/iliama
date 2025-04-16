@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Проповеди Ральфа Шалли | Библиотека Шалли</title>
+  <title>Проповеди Ральфа Шалли</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="gradient-header">
+  <header>
     <div class="header-container">
       <img src="1rs.jpg" alt="Ralph Shallis" class="profile-img">
       <div>
@@ -15,7 +15,7 @@
         <nav>
           <a href="index.html">Главная</a>
           <a href="books.html">Книги</a>
-          <a href="sermons.html" class="active">Проповеди</a>
+          <a href="sermons.html">Проповеди</a>
           <a href="quotes.html">Цитаты</a>
           <a href="testimonies.html">Свидетельства</a>
         </nav>
@@ -23,44 +23,47 @@
     </div>
   </header>
 
-  <main class="sermon-archive">
-    <div class="decorative-top"></div>
-    
-    <h2 class="section-title">Архив проповедей<span class="title-highlight"></span></h2>
-    <p class="section-subtitle">Духовные наставления и библейские истины</p>
-    
-    <div class="sermon-grid">
-      <!-- Проповедь 1 -->
-      <article class="sermon-card">
-        <a href="sermon-1.html" class="card-link">
-          <div class="card-image">
-            <img src="sermon-thumb.jpg" alt="Проповедь 1">
-            <div class="card-overlay">
-              <span class="play-icon">▶</span>
-            </div>
+  <main>
+    <section class="sermon-list">
+      <h2>Архив проповедей (100 записей)</h2>
+      
+      <div class="sermon-items-container">
+        <!-- Список проповедей 1-50 -->
+        <div class="sermon-column">
+          <div class="sermon-item">
+            <a href="sermon-1.html">1. О Библии и её значении (15.01.1985)</a>
           </div>
-          <div class="card-content">
-            <h3>О Библии и её значении</h3>
-            <div class="card-meta">
-              <span class="date">15 янв 1985</span>
-              <span class="duration">45 мин</span>
-            </div>
+          <div class="sermon-item">
+            <a href="sermon-2.html">2. Дух Святой - часть 1 (22.01.1985)</a>
           </div>
-        </a>
-      </article>
-
-      <!-- Добавляйте новые проповеди по этому шаблону -->
-    </div>
+          <div class="sermon-item">
+            <a href="sermon-3.html">3. Дух Святой - часть 2 (29.01.1985)</a>
+          </div>
+          <!-- Продолжаем список до 50 -->
+          <div class="sermon-item">
+            <a href="sermon-50.html">50. О христианской жизни (05.12.1986)</a>
+          </div>
+        </div>
+        
+        <!-- Список проповедей 51-100 -->
+        <div class="sermon-column">
+          <div class="sermon-item">
+            <a href="sermon-51.html">51. Основы веры (12.12.1986)</a>
+          </div>
+          <div class="sermon-item">
+            <a href="sermon-52.html">52. Молитва и общение с Богом (19.12.1986)</a>
+          </div>
+          <!-- Продолжаем список до 100 -->
+          <div class="sermon-item">
+            <a href="sermon-100.html">100. Заключительная проповедь (28.12.1990)</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer class="gradient-footer">
-    <div class="footer-content">
-      <p>&copy; 2025 Библиотека Шалли</p>
-      <div class="footer-links">
-        <a href="#">О проекте</a>
-        <a href="#">Контакты</a>
-      </div>
-    </div>
+  <footer>
+    <p>&copy; 2025 Библиотека Шалли</p>
   </footer>
 </body>
 </html>
