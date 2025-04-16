@@ -66,3 +66,45 @@ footer {
   padding: 10px;
   color: #777;
 }
+
+/* Стили для списка проповедей */
+.sermon-list {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.sermon-items-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.sermon-column {
+  flex: 1;
+  min-width: 300px;
+}
+
+.sermon-item {
+  margin-bottom: 12px;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.sermon-item:hover {
+  background: #eaf3ff;
+}
+
+.sermon-item a {
+  text-decoration: none;
+  color: #2980b9;
+  font-weight: 500;
+  display: block;
+}
+
+.sermon-item a:hover {
+  color: #1a5276;
+  text-decoration: underline;
+}
