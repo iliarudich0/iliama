@@ -5,160 +5,154 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Чудо Духа - Ральф Шалли</title>
     <link rel="stylesheet" href="style.css">
-<style>
-    /* Основные стили */
-    :root {
-        --primary-color: #2c3e50;
-        --accent-color: #e67e22;
-        --text-color: #333;
-        --bg-light: #f8f9fa;
-        --border-color: #ddd;
-    }
+    <style>
+        /* Основные стили */
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e67e22;
+            --text-color: #333;
+            --bg-light: #f8f9fa;
+            --border-color: #ddd;
+        }
 
-    /* Структура разделённого экрана */
-    .split-container {
-        display: flex;
-        flex-direction: column;
-        height: 100vh;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: var(--bg-light);
-    }
-
-    /* Основной контент книги */
-    .book-main {
-        flex: 1 1 70%;
-        overflow-y: auto;
-        padding: 2rem;
-        background: white;
-        box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
-        z-index: 10;
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    /* Панель стихов */
-    .verse-panel {
-        flex: 0 0 0;
-        background: white;
-        border-top: 2px solid var(--border-color);
-        overflow: hidden;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        position: relative;
-    }
-
-    .verse-panel.active {
-        flex-basis: 40%;
-    }
-
-    /* Контент панели */
-    .verse-content {
-        padding: 2rem;
-        height: calc(100% - 50px);
-        overflow-y: auto;
-        font-size: 1.1em;
-        line-height: 1.6;
-        color: var(--text-color);
-    }
-
-    /* Кнопка закрытия */
-    .close-panel {
-        position: absolute;
-        top: 1rem;
-        right: 1.5rem;
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        border-radius: 50%;
-        background: var(--bg-light);
-        transition: all 0.3s;
-    }
-
-    .close-panel:hover {
-        background: var(--accent-color);
-        color: white;
-        transform: rotate(90deg);
-    }
-
-    /* Стили для библейских ссылок */
-    .bible-ref {
-        color: var(--accent-color);
-        cursor: pointer;
-        border-bottom: 2px dotted var(--accent-color);
-        transition: all 0.2s;
-        position: relative;
-        padding: 0 2px;
-    }
-
-    .bible-ref:hover {
-        background: rgba(230, 126, 34, 0.1);
-        border-bottom-style: solid;
-    }
-
-    .bible-ref::after {
-        content: "▼";
-        font-size: 0.7em;
-        margin-left: 5px;
-        vertical-align: middle;
-        opacity: 0.7;
-    }
-
-    /* Анимации */
-    @keyframes slideUp {
-        from { transform: translateY(100%); }
-        to { transform: translateY(0); }
-    }
-
-    /* Адаптивность */
-    @media (max-width: 768px) {
+        /* Структура разделённого экрана */
         .split-container {
-            height: calc(100vh - 60px);
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-light);
+        }
+
+        /* Основной контент книги */
+        .book-main {
+            flex: 1 1 70%;
+            overflow-y: auto;
+            padding: 2rem;
+            background: white;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+            z-index: 10;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Панель стихов */
+        .verse-panel {
+            flex: 0 0 0;
+            background: white;
+            border-top: 2px solid var(--border-color);
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
         }
 
         .verse-panel.active {
-            flex-basis: 55%;
+            flex-basis: 40%;
         }
 
-        .book-main {
-            padding: 1.5rem;
-        }
-
+        /* Контент панели */
         .verse-content {
-            padding: 1.5rem;
-            font-size: 1em;
+            padding: 2rem;
+            height: calc(100% - 50px);
+            overflow-y: auto;
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: var(--text-color);
         }
 
-        .bible-ref {
-            font-size: 0.95em;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .verse-panel.active {
-            flex-basis: 65%;
-        }
-
-        .book-main {
-            padding: 1rem;
-        }
-
-        .verse-content {
-            padding: 1rem;
-        }
-
+        /* Кнопка закрытия */
         .close-panel {
-            top: 0.5rem;
-            right: 1rem;
-            width: 35px;
-            height: 35px;
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 50%;
+            background: var(--bg-light);
+            transition: all 0.3s;
         }
-    }
-</style>
+
+        .close-panel:hover {
+            background: var(--accent-color);
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        /* Стили для библейских ссылок */
+        .bible-ref {
+            color: var(--accent-color);
+            cursor: pointer;
+            border-bottom: 2px dotted var(--accent-color);
+            transition: all 0.2s;
+            position: relative;
+            padding: 0 2px;
+        }
+
+        .bible-ref:hover {
+            background: rgba(230, 126, 34, 0.1);
+            border-bottom-style: solid;
+        }
+
+        .bible-ref::after {
+            content: "▼";
+            font-size: 0.7em;
+            margin-left: 5px;
+            vertical-align: middle;
+            opacity: 0.7;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .split-container {
+                height: calc(100vh - 60px);
+            }
+
+            .verse-panel.active {
+                flex-basis: 55%;
+            }
+
+            .book-main {
+                padding: 1.5rem;
+            }
+
+            .verse-content {
+                padding: 1.5rem;
+                font-size: 1em;
+            }
+
+            .bible-ref {
+                font-size: 0.95em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .verse-panel.active {
+                flex-basis: 65%;
+            }
+
+            .book-main {
+                padding: 1rem;
+            }
+
+            .verse-content {
+                padding: 1rem;
+            }
+
+            .close-panel {
+                top: 0.5rem;
+                right: 1rem;
+                width: 35px;
+                height: 35px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -176,16 +170,16 @@
             </div>
         </div>
     </header>
-    
 
-    <main class="book-container">
-        <!-- Вставьте здесь всё содержимое вашей книги -->
-        <div class="book-header">
-            <h1 class="book-title">Чудо Духа</h1>
-            <p class="book-author">Автор: Ральф Шалли</p>
-        </div>
+    <div class="split-container">
+        <main class="book-main">
+            <!-- Вставьте ваш контент книги здесь -->
+            <div class="book-header">
+                <h1 class="book-title">Чудо Духа</h1>
+                <p class="book-author">Автор: Ральф Шалли</p>
+            </div>
 
-        <div class="toc">
+            <div class="toc">
                 <h3>Оглавление</h3>
                 <ol>
                     <li><a href="#chapter1">ПРЕДИСЛОВИЕ</a></li>
@@ -244,7 +238,7 @@
                 <p>
                     К МОЕМУ ЧИТАТЕЛЮ<br>
 Написать книгу о Том, Кто дал мне жизнь и благодаря Кому я существую, было бы чистым безумием, если бы у меня не было единственного ориентира — того, что Бог называет «Своим Словом», а люди называют «Библией». Он Сам является её Автором и письменно определяет для людей Свою мысль; короче говоря, Бог открывает нам Своё сердце.
-Как можно заключить в простую книгу мысль Того, Кто является источником всякого разума, Того, Кто недоступен рассуждениям философов или некоторых учёных, Того, Кто есть источник невероятно сложной энергии всей вселенной и Кто стоит у истоков чуда биологической клетки или генетического кода? Соломон говорил при освящении своего великолепного храма: <span class="bible-ref" data-verse="2par6-18">«Небеса и небеса небес не могут вместить Тебя!»¹</span>
+Как можно заключить в простую книгу мысль Того, Кто является источником всякого разума, Того, Кто недоступен рассуждениям философов или некоторых учёных, Того, Кто есть источник невероятно сложной энергии всей вселенной и Кто стоит у истоков чуда биологической клетки или генетического кода? Соломон говорил при освящении своего великолепного храма: <span class="bible-ref" data-verse="john3-5">«Небеса и небеса небес не могут вместить Тебя!»¹</span>
 Ни один человек не может пережить невероятный опыт «встречи с Богом» без того, чтобы не быть потрясённым, входя в близость с Архитектором Млечного Пути, Создателем вселенной и человечества; лицом к лицу с «великим поэтом», Который рождает свежее возрождение весны, Который задумывает зарождение младенца, — это просто возвращение к истоку своего бытия.
 Слушать этот голос — значит открыть абсолютную музыку.
 Кто не будет потрясён, услышав Голос, Который кричит нам о невыразимой красоте неизмеримой любви, когда Он касается нашего сознания через уста и измученное, обезображенное лицо того тридцатитрёхлетнего юноши, распятого, Которого и сегодня называют Иисусом из Назарета? Кто может измерить безумную преступность нашего человеческого рода, способного на такое убийство? Кто может постичь неисчерпаемые ресурсы такого божественного сострадания, которое дарует прощение?
@@ -252,11 +246,54 @@
 Этот Голос я услышал. Он разрывает душу и растворяет всякое неверие, он открывает небо неизреченного присутствия Бога. Он перевернул мою жизнь в юности и придал ей новый смысл: лицо Бога стало моим небом, а Его воля — моей причиной существования. Стать рабом Бога исключительно из любви — значит открыть свободу, проникнуть в высший смысл жизни.
 Именно читая Слово Божье день за днём, год за годом, ища лица Бога в уединении моей души, сталкиваясь с часто трудной и полной потрясений жизнью, я оказался в точке, где Бог, в Своей необъяснимой милости, открыл мне Своё сердце. Его Дух явил мне Своё лицо; Он расшифровал для меня символизм красоты и безграничного разума моего Творца. Это откровение приходило ко мне, конечно, фрагментарно — ибо какой человек может увидеть Бога лицом к лицу и остаться в живых? Тем не менее, оно принесло мне ясность через всё Его творение, как в природе, так и перед чудом Голгофы, взрыв этой прозрачной красоты, которой является Христос.
 С трепетом перед возможностью исказить тайны, принадлежащие только сердцу Бога, с риском быть неверно понятым или сочтённым абсурдным, я всё же утверждаю: это правда — я тогда безумно «влюбился в Бога». Именно тогда я начал понимать работу Святого Духа и то, что Бог желает совершить в человеке, в глубине его существа, вплоть до преображения всей жизни.
-Жить в постоянной и непосредственной связи с Тем, Кто есть вся любовь и сама жизнь, — это действительно осуществить невозможное. Именно это Его Дух хочет сделать в тебе. <a href="#fn2" class="footnote" id="ref2">«Ищите, — говорит Иисус, — и найдёте»².</a>
+Жить в постоянной и непосредственной связи с Тем, Кто есть вся любовь и сама жизнь, — это действительно осуществить невозможное. Именно это Его Дух хочет сделать в тебе. <span class="bible-ref" data-verse="john3-5">«Ищите, — говорит Иисус, — и найдёте»².</span>
 Эта книга хочет сопровождать тебя в этом удивительном открытии присутствия Бога в твоей жизни, к этой непрерывной сокровенной связи с Тем, Кто является Автором твоей жизни и хочет сделать её Своим поэтическим творением.
 
      </p>
-   
 
-      </body>
+            <!-- Добавьте остальные главы -->
+        </main>
+
+        <div class="verse-panel" id="versePanel">
+            <div class="verse-content" id="verseContent"></div>
+            <div class="close-panel" onclick="togglePanel()">×</div>
+        </div>
+    </div>
+
+    <script>
+        // Библиотека стихов
+        const bibleVerses = {
+            'john3-5': 'Иисус отвечал: истинно, истинно говорю тебе: если кто не родится от воды и Духа, не может войти в Царствие Божие. (Ин. 3:5)',
+            // Добавьте другие стихи
+        };
+
+        // Обработчик кликов
+        document.querySelectorAll('.bible-ref').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const verseId = this.dataset.verse;
+                showVerse(verseId);
+            });
+        });
+
+        function showVerse(verseId) {
+            const panel = document.getElementById('versePanel');
+            const content = document.getElementById('verseContent');
+            content.innerHTML = bibleVerses[verseId] || 'Стих не найден';
+            panel.classList.add('active');
+        }
+
+        function togglePanel() {
+            document.getElementById('versePanel').classList.remove('active');
+        }
+
+        // Закрытие при клике вне панели
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.verse-panel') && 
+                !e.target.closest('.bible-ref')) {
+                togglePanel();
+            }
+        });
+    </script>
+</body>
 </html>
